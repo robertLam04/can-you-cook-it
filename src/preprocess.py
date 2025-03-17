@@ -49,12 +49,6 @@ def normalize(feature):
     words = [[re.sub(r'[^a-zA-Z0-9]', '', word) for word in sentence] for sentence in words]
     words = [normalizers.remove_numbers(word) for word in words]
 
-    '''
-    words = [normalizers.lemmatize(word) for word in words]
-    words = [normalizers.remove_stopwords(word) for word in words]
-    words = [normalizers.remove_proper_nouns(word) for word in words]
-    '''
-
     return np.concatenate(words).tolist()
 
 from sklearn.feature_extraction.text import CountVectorizer

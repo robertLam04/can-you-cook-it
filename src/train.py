@@ -1,5 +1,5 @@
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, accuracy_score
 import numpy as np
 import joblib
 
@@ -29,14 +29,7 @@ def evaluate_model(model, X_test, y_test):
 
     metrics = {
         "mean_squared_error": mean_squared_error(y_test, y_pred),
-        "mean_absolute_error": mean_absolute_error(y_test, y_pred),
-        "r2_score": r2_score(y_test, y_pred)
+        "r2_score": r2_score(y_test, y_pred),
     }
 
     return metrics
-
-def save_model(model, filename="../logistic_regression_model.pkl"):
-    joblib.dump(model, filename)
-
-def load_model(filename="../logistic_regression_model.pkl"):
-    return joblib.load(filename)

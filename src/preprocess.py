@@ -54,7 +54,6 @@ def normalize(feature):
 from sklearn.feature_extraction.text import CountVectorizer
 
 def preprocess_bow(features):
-    # Join the list of words back into a single string for each feature
     features_text = [' '.join(feature) for feature in features]
 
     vectorizer = CountVectorizer()
@@ -64,7 +63,6 @@ def preprocess_bow(features):
     return bow_matrix
 
 def preprocess_tfidf(features):
-    # Join the list of words back into a single string for each feature
     features_text = [' '.join(feature) for feature in features]
 
     vectorizer = TfidfVectorizer()

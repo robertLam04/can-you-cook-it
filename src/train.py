@@ -1,9 +1,8 @@
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, accuracy_score
 import numpy as np
-import joblib
 
-# Simple baseline model: Always predicts the average of the traininig labels
+# Average baseline model: Always predicts the average of the traininig labels
 class AverageModel:
     def __init__(self):
         self.average = None
@@ -16,6 +15,11 @@ class AverageModel:
         for _ in range(X.shape[0]):
             predictions.append(self.average)
         return np.array(predictions)
+    
+# Random baseline model: Always predicts a random number between 1 and 5
+class RandomModel:
+    def predict(self, X):
+        return np.random.randint(1, 6, size=X.shape[0])
 
 # Trained model: Simple linear regression using BoW features
 def train_logistic_regression(X_train, y_train, max_iter=1000, C=1.0):
